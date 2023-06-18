@@ -1,24 +1,11 @@
-import React from "react";
-import "@dotlottie/player-component";
+import Lottie from "lottie-react";
+import solarSystemLottie from "../../../public/lottie-files/lottie-solar-system.json";
 
-const LottiePlayer = ({
-  file,
-  height,
-  width,
-  autoplay = true,
-  loop = true,
-}: any) => {
-  console.log(height);
-  return (
-    <>
-      <dotlottie-player
-        src={file}
-        autoplay={autoplay}
-        loop={loop}
-        style={{ height: height, width: width }}
-      />
-    </>
-  );
-};
+const LottiePlayer = ({ width, height }: any) => (
+  <Lottie
+    animationData={solarSystemLottie}
+    style={{ height: height, width: width }}
+  />
+);
 
 export default LottiePlayer;

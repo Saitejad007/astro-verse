@@ -1,16 +1,23 @@
 "use client";
 import { apodData } from "@/global-redux/Slices/apod";
 import axios from "axios";
-import Image from "next/image";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateData } from "@/global-redux/Slices/apod";
 import { useSelector } from "react-redux";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
-import "@dotlottie/player-component";
-import LottiePlayer from "@/components/LottiePlayer";
 import Button from "@/components/Button";
+import LottiePlayer from "@/components/LottiePlayer";
+
+// const DynamicLottie = dynamic(() => import("@/components/DotLottiePlayer"), {
+//   loading: () => (
+//     <LottiePlayer
+//       file={"/lottie-files/solar-system.lottie"}
+//       height="300px"
+//       width="300px"
+//     />
+//   ),
+// });
 
 export default function Home() {
   const data = useSelector(apodData);
@@ -31,14 +38,16 @@ export default function Home() {
   console.log(data);
 
   return (
-    <main className="flex min-h-screen flex-col items-center container bg-spaceblack w-screen">
+    <main className="flex min-h-screen min-w-screen flex-col items-center bg-spaceblack w-screen">
       <Navbar />
       <div className="m-2">
+        {/* <DynamicLottie />
         <LottiePlayer
           file={"/lottie-files/solar-system.lottie"}
           height="300px"
           width="300px"
-        />
+        /> */}
+        <LottiePlayer height="300px" width="300px" />
       </div>
       <div className="flex flex-col items-center justify-center w-full h-full">
         <h1 className="text-8xl font-bold text-white">
